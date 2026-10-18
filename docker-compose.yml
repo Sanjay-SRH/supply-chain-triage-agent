@@ -1,0 +1,14 @@
+# Local FalkorDB. Port 6379 = database, port 3000 = FalkorDB Browser (visual query UI).
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: triage-falkordb
+    ports:
+      - "6379:6379"
+      - "3000:3000"
+    volumes:
+      - falkordb_data:/var/lib/falkordb/data
+    restart: unless-stopped
+
+volumes:
+  falkordb_data:
